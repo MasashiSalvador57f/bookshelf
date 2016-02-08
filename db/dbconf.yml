@@ -1,0 +1,15 @@
+test:
+    driver: mymysql
+    open: bookshelfdb/bookshelf/hogehoge
+
+development:
+    driver: mymysql
+    open: bookshelfdb/bookshelf/hogehoge
+
+production:
+    driver: mymysql
+    open: bookshelfdb/bookshelf/hogehoge
+
+environment_variable_config:
+    driver: $DB_DRIVER
+    open: $DATABASE_URL
