@@ -1,8 +1,9 @@
 package models
 
 import (
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var engine *xorm.Engine
@@ -10,7 +11,7 @@ var engine *xorm.Engine
 // main ...
 func init() {
 	var err error
-	engine, err = xorm.NewEngine("mysql", "dev:dev@/dev_pairs")
+	engine, err = xorm.NewEngine("mysql", "fuga:pass@/bookshelf")
 	if err != nil {
 		panic(err)
 	}
@@ -43,7 +44,6 @@ func NewUserRepository() UserRepository {
 func (m UserRepository) GetByID(id int) *User {
 	var user = User{ID: id}
 	has, _ := engine.Get(&user)
-	// or has, err := engine.Id(27).Get(&user)
 	if has {
 		return &user
 	}
